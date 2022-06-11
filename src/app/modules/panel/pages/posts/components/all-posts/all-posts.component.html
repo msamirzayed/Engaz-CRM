@@ -1,0 +1,38 @@
+<div class="container">
+
+    <button class="btn btn-primary " (click)="goToAdd()">Add New</button>
+    <button class="btn btn-primary mx-5" (click)="goToComments()">Go to Comments</button>
+    <button class="btn btn-danger "(click)="logout()">logout</button>
+
+  <ngx-datatable
+    class="material expandable"
+    [rows]="posts"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    rowHeight="auto"
+    columnMode="force"
+    [limit]="7"
+  >
+    <ngx-datatable-column name="ID" prop="id">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <strong>{{ value }}</strong>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Title" prop="title">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <span>{{ value }}</span>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Actions">
+      <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+        <button class="btn btn-success" (click)="onEdit(row.id)">Edit</button>
+        <button class="btn btn-danger" (click)="onDelete(row.id)" style="margin-left: 15px">
+          Delete
+        </button>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+
+</div>

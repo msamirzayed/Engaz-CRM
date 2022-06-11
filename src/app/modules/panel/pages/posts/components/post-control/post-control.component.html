@@ -1,0 +1,28 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <div class="form-group">
+      <label for="title">Title: </label>
+      <input
+        id="title"
+        type="text"
+        placeholder="enter title"
+        formControlName="title"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="body">Body: </label>
+      <input
+        id="body"
+        type="text"
+        placeholder="enter body"
+        formControlName="body"
+        class="form-control"
+      />
+    </div>
+
+    <button class="btn btn-primary mt-2" [disabled]="form.invalid">Save</button>
+  </form>
+
+</div>
